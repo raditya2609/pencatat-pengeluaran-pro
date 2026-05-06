@@ -1,0 +1,85 @@
+@import "@fontsource-variable/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0b;
+  --surface: #141416;
+  --surface-elevated: #1c1c1f;
+  --border: rgba(255, 255, 255, 0.08);
+  --text-primary: #fafafa;
+  --text-secondary: #9a9a9f;
+  --text-tertiary: #6b6b70;
+
+  --accent: #ff6b47;
+  --accent-hover: #ff8264;
+  --accent-soft: rgba(255, 107, 71, 0.12);
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --chart-1: #ff6b47;
+  --chart-2: #8b5cf6;
+  --chart-3: #06b6d4;
+  --chart-4: #f59e0b;
+  --chart-5: #22c55e;
+  --chart-6: #ec4899;
+  --chart-7: #6366f1;
+  --chart-8: #14b8a6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  color-scheme: dark;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top right, rgba(255, 107, 71, 0.1), transparent 30rem),
+    var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.tabular-nums,
+[data-currency="true"] {
+  font-feature-settings: "tnum";
+}
+
+::selection {
+  background: var(--accent);
+  color: #ffffff;
+}
