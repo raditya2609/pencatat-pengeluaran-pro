@@ -125,7 +125,8 @@ export function SettingsDashboard({
           <div>
             <h3 className="text-lg font-bold text-primary">Import CSV</h3>
             <p className="mt-1 text-sm leading-6 text-secondary">
-              Format terbaik adalah CSV hasil export dari aplikasi ini.
+              Unggah file CSV berisi pengeluaran dengan kolom tanggal, nominal,
+              kategori, catatan, metode bayar, dan tag.
             </p>
           </div>
         </div>
