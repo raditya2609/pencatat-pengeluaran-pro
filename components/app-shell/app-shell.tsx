@@ -340,19 +340,27 @@ export function AppShell() {
 
           <aside className="hidden space-y-4 md:block">
             <Card>
-              <h2 className="text-base font-bold text-primary">
-                Fondasi siap
-              </h2>
-              <p className="mt-2 text-sm leading-6 text-secondary">
-                Data tersimpan di IndexedDB, kategori default sudah disiapkan,
-                dan fase berikutnya tinggal mengaktifkan pencatatan pengeluaran.
-              </p>
+              <h2 className="text-base font-bold text-primary">Bulan ini</h2>
+              <div className="mt-4 space-y-3">
+                <SidebarStat
+                  label="Transaksi"
+                  value={currentMonthExpenses.length.toString()}
+                />
+                <SidebarStat
+                  label="Avg harian"
+                  value={formatIDR(summaryMetrics.averageDailySpend)}
+                />
+                <SidebarStat
+                  label="Streak terbaik"
+                  value={`${achievementStats.streaks.longestLoggingStreak} hari`}
+                />
+              </div>
             </Card>
             <Card>
-              <h2 className="text-base font-bold text-primary">Kualitas</h2>
+              <h2 className="text-base font-bold text-primary">Siap dipakai</h2>
               <p className="mt-2 text-sm leading-6 text-secondary">
-                Strict TypeScript, ESLint, Prettier, Vitest, dan utilitas IDR
-                sudah menjadi bagian dari fondasi awal.
+                Data tersimpan lokal, bisa dibuka saat offline, dan laporan
+                bulanan bisa diekspor dari tab Laporan atau Monthly Wrap.
               </p>
             </Card>
           </aside>
@@ -387,6 +395,17 @@ export function AppShell() {
       />
       <FloatingActionButton onClick={openNewExpenseForm} />
       <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
+    </div>
+  )
+}
+
+function SidebarStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-lg border border-border bg-background px-3 py-2">
+      <p className="text-xs font-medium text-tertiary">{label}</p>
+      <p className="mt-1 font-mono text-lg font-bold tabular-nums text-primary">
+        {value}
+      </p>
     </div>
   )
 }
